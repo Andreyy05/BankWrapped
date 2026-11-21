@@ -1,0 +1,81 @@
+@import '@fontsource-variable/inter';
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces & Backgrounds */
+  --bg-app: #F7F7F8;
+  --bg-card: #FFFFFF;
+  --bg-subtle: #F0F0F2;
+  --bg-hover: #EBECEF;
+
+  /* Borders */
+  --border-subtle: #E2E3E6;
+  --border-strong: #C8CBD0;
+
+  /* Typography Colors */
+  --text-primary: #0F1115;
+  --text-secondary: #4B5160;
+  --text-tertiary: #717784;
+
+  /* Accent (Cobalt) */
+  --accent: #2B59FF;
+  --accent-hover: #1E47E6;
+  --accent-subtle: #EEF2FF;
+  --accent-foreground: #FFFFFF;
+
+  /* Semantics */
+  --income: #0E7C66;
+  --income-subtle: #E6F5F1;
+  --danger: #D9383A;
+  --danger-subtle: #FDF0F0;
+  --warning: #D97706;
+  --warning-subtle: #FFFBEB;
+
+  /* Radii */
+  --radius-btn: 6px;
+  --radius-card: 10px;
+
+  /* Elevation (No card shadows; only modals & dropdowns) */
+  --shadow-popover: 0 4px 16px -2px rgba(15, 17, 21, 0.08), 0 2px 6px -1px rgba(15, 17, 21, 0.04);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Surfaces & Backgrounds */
+  --bg-app: #0B0C0F;
+  --bg-card: #14161B;
+  --bg-subtle: #1B1E24;
+  --bg-hover: #22262E;
+
+  /* Borders */
+  --border-subtle: #242830;
+  --border-strong: #363B47;
+
+  /* Typography Colors */
+  --text-primary: #F2F3F5;
+  --text-secondary: #A3A9B5;
+  --text-tertiary: #6E7582;
+
+  /* Accent (Cobalt) */
+  --accent: #3D6BFF;
+  --accent-hover: #527BFF;
+  --accent-subtle: #16224F;
+  --accent-foreground: #FFFFFF;
+
+  /* Semantics */
+  --income: #20A78B;
+  --income-subtle: #0B2922;
+  --danger: #EB5757;
+  --danger-subtle: #2B1516;
+  --warning: #F59E0B;
+  --warning-subtle: #2D2006;
+
+  /* Elevation */
+  --shadow-popover: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 2px 8px -1px rgba(0, 0, 0, 0.35);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
