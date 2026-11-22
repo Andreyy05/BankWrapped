@@ -1,3 +1,6 @@
+/**
+ * Supported budget & spending categories in BankWrapped.
+ */
 export type CategoryId =
   | 'groceries'
   | 'dining'
@@ -10,19 +13,37 @@ export type CategoryId =
   | 'transfer'
   | 'other';
 
+/**
+ * Origin source of category assignment.
+ */
 export type CategorySource = 'rule_builtin' | 'rule_user' | 'manual' | 'fallback';
 
+/**
+ * Normalized transaction model.
+ * All monetary amounts are integers in minor units (haléře/cents) to prevent floating-point drift.
+ */
 export interface Transaction {
-  id: string; // Stable hash: date + amountMinor + rawMerchant + duplicate index
-  date: string; // ISO 'YYYY-MM-DD' (local date, no timezone)
-  amountMinor: number; // Integer in haléřích; negative = expense, positive = income
-  currency: string; // ISO 4217, e.g. 'CZK'
-  rawMerchant: string; // Original text from bank statement
-  cleanedMerchant: string; // Simplified name, e.g. 'Albert'
+  /** Stable hash composed of date, amount, raw merchant and duplicate index */
+  id: string;
+  /** ISO date string: YYYY-MM-DD */
+  date: string;
+  /** Integer in minor currency units (haléře); negative for expenses, positive for income */
+  amountMinor: number;
+  /** ISO 4217 currency code, typically CZK */
+  currency: string;
+  /** Raw statement descriptor as provided by the bank */
+  rawMerchant: string;
+  /** Cleaned merchant display name */
+  cleanedMerchant: string;
+  /** Assigned category */
   category: CategoryId;
+  /** Origin source of the category assignment */
   categorySource: CategorySource;
+  /** Whether this payment matches recurring subscription criteria */
   isSubscription: boolean;
+  /** Optional payment note or user comment */
   note?: string;
+  /** Optional bank account identifier */
   accountId?: string;
 }
 
