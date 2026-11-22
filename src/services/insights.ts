@@ -98,7 +98,7 @@ export function computeInsights(
   }
 
   const sortedDays = Object.entries(dailyExpenses)
-    .filter(([_, data]) => data.totalMinor > 0)
+    .filter(([, data]) => data.totalMinor > 0)
     .sort((a, b) => b[1].totalMinor - a[1].totalMinor);
 
   let expensiveDay: ExpensiveDayInfo | null = null;
@@ -130,7 +130,7 @@ export function computeInsights(
   }
 
   const merchantList: TopMerchant[] = Object.entries(merchantStats)
-    .filter(([_, stats]) => stats.totalMinor > 0 || stats.count > 0)
+    .filter(([, stats]) => stats.totalMinor > 0 || stats.count > 0)
     .map(([merchant, stats]) => ({
       merchant,
       count: stats.count,

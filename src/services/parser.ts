@@ -206,7 +206,7 @@ export function parseAmountToMinor(amountStr: string, decimalSep: ',' | '.'): nu
 
   // Remove currency signs, NBSP, and whitespace
   let clean = amountStr
-    .replace(/[^\d.,+\-]/g, '')
+    .replace(/[^\d.,+-]/g, '')
     .replace(/\u00A0|\u202F/g, '')
     .trim();
 

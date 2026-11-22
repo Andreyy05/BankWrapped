@@ -54,7 +54,7 @@ export const CategoryDonutChart: React.FC<CategoryDonutChartProps> = ({
     if (totalExpenseMinor === 0) return [];
 
     return Object.entries(map)
-      .filter(([_, d]) => d.amountMinor > 0)
+      .filter(([, d]) => d.amountMinor > 0)
       .map(([catId, d]) => {
         const id = catId as CategoryId;
         const def = getCategoryDefinition(id);
