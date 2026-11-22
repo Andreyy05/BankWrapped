@@ -21,6 +21,10 @@
 [Testování](#-testov%C3%A1n%C3%AD) •
 [Struktura projektu](#-struktura-projektu)
 
+<br /><br />
+
+<img src="docs/preview.png" alt="BankWrapped Dashboard" width="100%" />
+
 </div>
 
 ---
