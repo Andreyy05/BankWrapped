@@ -179,6 +179,17 @@ spatne_datum;-200;Neplatne datum
       expect(result.errors[0]?.row).toBe(3); // row 3 is spatne_datum
       expect(result.errors[1]?.row).toBe(4); // row 4 is missing date
     });
+
+    it('handles empty input gracefully without throwing', () => {
+      const result = parseBankCsv('');
+      expect(result.transactions).toEqual([]);
+      expect(result.errors).toEqual([]);
+    });
+
+    it('handles csv with only whitespace and blank lines', () => {
+      const result = parseBankCsv('   \n\n\r\n   \t  ');
+      expect(result.transactions).toEqual([]);
+    });
   });
 });
 
