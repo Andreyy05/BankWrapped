@@ -264,6 +264,39 @@ describe('Insights engine (src/services/insights.ts)', () => {
       expect(insights.topMerchantsByAmount.length).toBe(1);
       expect(insights.topMerchantsByAmount[0]?.merchant).toBe('Albert');
     });
+
+    it('returns zero expense and income when all transactions are transfers', () => {
+      const allTransfers: Transaction[] = [
+        {
+          id: 'tx-t1',
+          date: '2024-10-01',
+          amountMinor: -500000,
+          currency: 'CZK',
+          rawMerchant: 'Převod mezi účty',
+          cleanedMerchant: 'Převod mezi účty',
+          category: 'transfer',
+          categorySource: 'rule_builtin',
+          isSubscription: false,
+        },
+        {
+          id: 'tx-t2',
+          date: '2024-10-01',
+          amountMinor: 500000,
+          currency: 'CZK',
+          rawMerchant: 'Převod na spořicí účet',
+          cleanedMerchant: 'Převod na spořicí účet',
+          category: 'transfer',
+          categorySource: 'rule_builtin',
+          isSubscription: false,
+        },
+      ];
+
+      const insights = computeInsights(allTransfers);
+      expect(insights.totalExpenseMinor).toBe(0);
+      expect(insights.totalIncomeMinor).toBe(0);
+      expect(insights.netBalanceMinor).toBe(0);
+      expect(insights.expensiveDay).toBeNull();
+    });
   });
 });
 
